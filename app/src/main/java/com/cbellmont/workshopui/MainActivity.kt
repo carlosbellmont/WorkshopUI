@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(), UserSelectable {
     }
 
     private fun createLinearRecyclerView() {
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.adapter = adapter
     }
 
