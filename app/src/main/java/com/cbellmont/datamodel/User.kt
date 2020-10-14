@@ -13,7 +13,11 @@ data class User(
         return String.format("%s %s", name.name, name.surname)
     }
 
-    fun getPhotoUrl() : String {
+    fun getSmallPhoto() : String {
+        return picture.medium
+    }
+
+    fun getLargePhoto() : String {
         return picture.large
     }
 
