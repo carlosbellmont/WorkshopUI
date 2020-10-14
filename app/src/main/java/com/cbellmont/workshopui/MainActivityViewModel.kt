@@ -1,11 +1,12 @@
 package com.cbellmont.workshopui
 
-import User
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.cbellmont.datamodel.Event
+import com.cbellmont.datamodel.User
 import com.cbellmont.sources.GetAllContacts
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +20,9 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
 
     private val _userList : MutableLiveData<List<User>> by lazy { MutableLiveData<List<User>>() }
     val userList : LiveData<List<User>> get() = _userList
+
+    private val _eventList : MutableLiveData<List<Event>> by lazy { MutableLiveData<List<Event>>() }
+    val eventList : LiveData<List<Event>> get() = _eventList
 
     enum class MainActivityStatus {
         WAITING,
@@ -48,7 +52,6 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
             _mainActivityStatus.value = MainActivityStatus.FINISHED
         }
     }
-
 
     fun downloadData() {
         viewModelScope.launch {

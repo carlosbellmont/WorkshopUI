@@ -1,7 +1,9 @@
 package com.cbellmont.sources
 
-import User
 import android.util.Log
+import com.cbellmont.datamodel.Event
+import com.cbellmont.datamodel.EventFactory
+import com.cbellmont.datamodel.User
 import com.cbellmont.workshopui.MainActivityViewModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -42,8 +44,13 @@ class GetAllContacts {
                                     Log.d(GetAllContacts::class.simpleName, results.toString())
                                     val gson = Gson()
                                     val itemType = object : TypeToken<List<User>>() {}.type
-                                    val list = gson.fromJson<List<User>>(results.toString(), itemType)
-                                    viewModel.downloadFinished(list)
+                                    val userList = gson.fromJson<List<User>>(results.toString(), itemType)
+                                    userList.forEach{
+                                        it.events = EventFactory.getRandom()
+                                        Log.d(GetAllContacts::class.simpleName,  it.toString())
+
+                                    }
+                                    viewModel.downloadFinished(userList)
                                 }
                             } catch (e : Exception) {
                                 Log.e(GetAllContacts::class.simpleName, "La página web no ha respondido bien. Reintentamos la descarga")
