@@ -1,7 +1,6 @@
 package com.cbellmont.sources
 
 import android.util.Log
-import com.cbellmont.datamodel.Event
 import com.cbellmont.datamodel.EventFactory
 import com.cbellmont.datamodel.User
 import com.cbellmont.workshopui.MainActivityViewModel
@@ -15,7 +14,7 @@ import org.json.JSONObject
 import java.io.IOException
 
 
-class GetAllContacts {
+class GetAllUsers {
     companion object {
         private const val URL = "https://randomuser.me/api/?results=10"
 
@@ -27,7 +26,7 @@ class GetAllContacts {
             call.enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
                     e.printStackTrace()
-                    Log.e(GetAllContacts::class.simpleName, call.toString())
+                    Log.e(GetAllUsers::class.simpleName, call.toString())
                     viewModel.downloadCancelled()
                 }
 
@@ -35,25 +34,25 @@ class GetAllContacts {
                     CoroutineScope(Dispatchers.IO).launch {
                         val bodyInString = response.body?.string()
                         bodyInString?.let { it ->
-                            Log.w(GetAllContacts::class.simpleName, it)
+                            Log.w(GetAllUsers::class.simpleName, it)
                             try {
                                 val jsonObject = JSONObject(it)
 
                                 val results = jsonObject.optJSONArray("results")
                                 results?.let {
-                                    Log.d(GetAllContacts::class.simpleName, results.toString())
+                                    Log.d(GetAllUsers::class.simpleName, results.toString())
                                     val gson = Gson()
                                     val itemType = object : TypeToken<List<User>>() {}.type
                                     val userList = gson.fromJson<List<User>>(results.toString(), itemType)
                                     userList.forEach{
                                         it.events = EventFactory.getRandom()
-                                        Log.d(GetAllContacts::class.simpleName,  it.toString())
+                                        Log.d(GetAllUsers::class.simpleName,  it.toString())
 
                                     }
                                     viewModel.downloadFinished(userList)
                                 }
                             } catch (e : Exception) {
-                                Log.e(GetAllContacts::class.simpleName, "La página web no ha respondido bien. Reintentamos la descarga")
+                                Log.e(GetAllUsers::class.simpleName, "La página web no ha respondido bien. Reintentamos la descarga")
                                 e.printStackTrace()
                                 viewModel.downloadData()
                             }
