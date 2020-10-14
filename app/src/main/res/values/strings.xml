@@ -2,4 +2,9 @@
     <string name="app_name">WorkshopUI</string>
     <string name="details">Details</string>
     <string name="name">Name</string>
+    <string name="birthday">Birthday</string>
+    <string name="Anniversary">Anniversary</string>
+    <string name="Promotion">Promotion</string>
+    <string name="Wedding">Wedding</string>
+    <string name="Others">Others</string>
 </resources>

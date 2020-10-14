@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cbellmont.datamodel.User
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_details.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -89,6 +90,6 @@ class MainActivity : AppCompatActivity(), UserSelectable {
     }
 
     override fun onUserSelected(user: User) {
-        tvDetails.text = user.toString()
+        tvBirthdayDetails.text = user.toString()
     }
 }

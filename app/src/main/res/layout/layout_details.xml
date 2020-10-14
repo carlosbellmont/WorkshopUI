@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="8dp">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/ivPictureBig"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/default_picture"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="5dp"
+            app:civ_shadow="true"
+            app:civ_shadow_radius="5dp"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/layoutBirthday"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvTitleBirthday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/birthday"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/vBirthday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleBirthday" />
+
+            <ImageView
+                android:id="@+id/ivBirthday"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ico_birthday"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vBirthday"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvBirthdayDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBirthday"
+                app:layout_constraintTop_toBottomOf="@+id/vBirthday" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/layoutAnniversary"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvTitleAnniversary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/Anniversary"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/vAnniversary"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vAnniversary"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleAnniversary" />
+
+            <ImageView
+                android:id="@+id/ivAnniversary"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ico_anniversary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vAnniversary"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvAnniversaryDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivAnniversary"
+                app:layout_constraintTop_toBottomOf="@+id/vAnniversary" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/layoutPromotion"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvTitlePromotion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/Promotion"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/vPromotion"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitlePromotion" />
+
+            <ImageView
+                android:id="@+id/ivPromotion"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ico_promotion"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vPromotion"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvPromotionDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivPromotion"
+                app:layout_constraintTop_toBottomOf="@+id/vPromotion" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/layoutWedding"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvTitleWedding"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/Wedding"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/vWedding"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vWedding"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleWedding" />
+
+            <ImageView
+                android:id="@+id/ivWedding"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ico_wedding"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vWedding"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvWeddingDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivWedding"
+                app:layout_constraintTop_toBottomOf="@+id/vWedding" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/layoutOthers"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvTitleOthers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/Others"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/vOthers"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vOthers"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitleOthers" />
+
+            <ImageView
+                android:id="@+id/ivOthers"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/icon_others"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vOthers"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvOthersDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/details"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivOthers"
+                app:layout_constraintTop_toBottomOf="@+id/vOthers" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>
