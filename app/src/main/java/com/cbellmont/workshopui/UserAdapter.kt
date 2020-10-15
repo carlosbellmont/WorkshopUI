@@ -7,7 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cbellmont.datamodel.User
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import java.lang.Exception
 
 class UserAdapter(private var userSelectable: UserSelectable) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
@@ -33,7 +35,18 @@ class UserAdapter(private var userSelectable: UserSelectable) : RecyclerView.Ada
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.tvName.text = users[position].getCompleteName()
-        Picasso.get().load(users[position].getSmallPhoto()).into(holder.tvPicture)
+        Picasso.get().load(users[position].getSmallPhoto()).fetch(object : Callback {
+            override fun onSuccess() {
+                holder.tvPicture.alpha = 0f;
+                Picasso.get().load(users[position].getSmallPhoto()).into(holder.tvPicture);
+                holder.tvPicture.animate().setDuration(300).alpha(1f).start();
+            }
+
+            override fun onError(e: Exception?) {
+            }
+        })
+
+        // Picasso.get().load(users[position].getSmallPhoto()).into(holder.tvPicture)
         holder.root.setOnClickListener {
             userSelectable.onUserSelected(users[position])
         }

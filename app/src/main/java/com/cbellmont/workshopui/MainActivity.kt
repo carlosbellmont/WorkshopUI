@@ -6,13 +6,18 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cbellmont.datamodel.Event
+import com.cbellmont.datamodel.EventType
 import com.cbellmont.datamodel.User
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_details.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 interface UserSelectable {
     fun onUserSelected(user: User)
@@ -90,6 +95,54 @@ class MainActivity : AppCompatActivity(), UserSelectable {
     }
 
     override fun onUserSelected(user: User) {
-        tvBirthdayDetails.text = user.toString()
+        configureDetails(user)
+    }
+
+    private fun configureDetails(user: User) {
+        clearDetails()
+        layoutDetails.visibility = View.VISIBLE
+
+        Picasso.get().load(user.getLargePhoto()).into(ivPictureBig)
+        user.events.forEach {
+            when (it.name) {
+                EventType.BIRTHDAY -> {
+                    layoutBirthday.visibility = View.VISIBLE
+                    tvBirthdayDetails.text = it.giftIdea.toString()
+                }
+                EventType.WEDDING -> {
+                    layoutWedding.visibility = View.VISIBLE
+                    tvWeddingDetails.text = it.giftIdea.toString()
+                }
+                EventType.PROMOTION -> {
+                    layoutPromotion.visibility = View.VISIBLE
+                    tvPromotionDetails.text = it.giftIdea.toString()
+                }
+                EventType.ANNIVERSARY -> {
+                    layoutAnniversary.visibility = View.VISIBLE
+                    tvAnniversaryDetails.text = it.giftIdea.toString()
+                }
+                EventType.OTHERS -> {
+                    layoutOthers.visibility = View.VISIBLE
+                    tvOthersDetails.text = it.giftIdea.toString()
+                }
+            }
+        }
+
+    }
+
+    private fun clearDetails() {
+
+        layoutBirthday.visibility = View.GONE
+        layoutWedding.visibility = View.GONE
+        layoutAnniversary.visibility = View.GONE
+        layoutPromotion.visibility = View.GONE
+        layoutOthers.visibility = View.GONE
+
+        tvBirthdayDetails.text = ""
+        tvAnniversaryDetails.text = ""
+        tvWeddingDetails.text = ""
+        tvPromotionDetails.text = ""
+        tvOthersDetails.text = ""
+
     }
 }
