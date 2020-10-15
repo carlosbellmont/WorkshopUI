@@ -1,23 +1,21 @@
 package com.cbellmont.workshopui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.cbellmont.datamodel.Event
 import com.cbellmont.datamodel.EventType
 import com.cbellmont.datamodel.User
-import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_details.*
+import kotlinx.android.synthetic.main.layout_welcome.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 
 interface UserSelectable {
     fun onUserSelected(user: User)
@@ -86,7 +84,7 @@ class MainActivity : AppCompatActivity(), UserSelectable {
     }
 
     private fun hideLoading(){
-        progressBar.visibility = View.GONE
+        progressBar.visibility = View.INVISIBLE
     }
 
     private fun createLinearRecyclerView() {
@@ -100,6 +98,7 @@ class MainActivity : AppCompatActivity(), UserSelectable {
 
     private fun configureDetails(user: User) {
         clearDetails()
+        layoutWelcome.visibility = View.GONE
         layoutDetails.visibility = View.VISIBLE
 
         Picasso.get().load(user.getLargePhoto()).into(ivPictureBig)
@@ -131,7 +130,6 @@ class MainActivity : AppCompatActivity(), UserSelectable {
     }
 
     private fun clearDetails() {
-
         layoutBirthday.visibility = View.GONE
         layoutWedding.visibility = View.GONE
         layoutAnniversary.visibility = View.GONE
